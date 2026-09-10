@@ -68,14 +68,14 @@ export default function HomePage() {
                 gap: '1.5rem',
               }}
             >
-              {/* E-BOOK Title */}
+              {/* E-BOOK Title with Honfleur font */}
               <div
                 style={{
-                  fontFamily: 'var(--font-cyber)',
-                  fontSize: '2.1rem',
+                  fontFamily: "var(--font-honfleur), 'Honfleur', sans-serif",
+                  fontSize: '2.4rem',
                   fontWeight: 900,
                   color: '#0a0a0c',
-                  letterSpacing: '-1.5px',
+                  letterSpacing: '-1px',
                   userSelect: 'none',
                   display: 'flex',
                   alignItems: 'center',
@@ -150,23 +150,24 @@ export default function HomePage() {
               }}
             >
               <div>
-                {/* menu header with underline exactly like Image 1 */}
+                {/* MENU header with Super Retro font and underline exactly like Figma */}
                 <div style={{ marginBottom: '1.25rem' }}>
                   <div
                     style={{
-                      fontFamily: 'var(--font-cyber)',
-                      fontSize: '1.4rem',
-                      fontWeight: 900,
+                      fontFamily: "var(--font-super-retro), 'Super Retro M54', monospace",
+                      fontSize: '1.6rem',
+                      fontWeight: 700,
                       color: '#0a0a0c',
-                      letterSpacing: '-0.5px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase',
                     }}
                   >
-                    menu
+                    MENU
                   </div>
                   <div
                     style={{
                       width: '100%',
-                      height: '2px',
+                      height: '2.5px',
                       backgroundColor: '#0a0a0c',
                       marginTop: '4px',
                     }}
@@ -519,8 +520,8 @@ export default function HomePage() {
 
           <h2
             style={{
-              fontFamily: 'var(--font-cyber)',
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+              fontFamily: "var(--font-honfleur), 'Honfleur', sans-serif",
+              fontSize: 'clamp(2.6rem, 6vw, 4.2rem)',
               fontWeight: 900,
               letterSpacing: '-1px',
               color: '#0a0a0c',

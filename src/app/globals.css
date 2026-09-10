@@ -1,5 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Orbitron:wght@600;800;900&family=Space+Grotesk:wght@500;700&display=swap');
 
+/* Custom Local Fonts from Figma */
+@font-face {
+  font-family: 'Honfleur';
+  src: url('/fonts/Honfleur-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Honfleur';
+  src: url('/fonts/Honfleur-HeavyItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Super Retro M54';
+  src: url('/fonts/Super Retro M54.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Super Retro M54';
+  src: url('/fonts/Super Retro Italic M54.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   /* Futuristic ChainGPT-inspired Palette (White / Black / Red) */
   --bg-main: #f0f2f5;
@@ -23,7 +56,9 @@
   --border-tech-bold: #0a0a0c;
   --border-red: rgba(255, 42, 42, 0.3);
 
-  --font-cyber: 'Orbitron', 'Space Grotesk', sans-serif;
+  --font-honfleur: 'Honfleur', 'Orbitron', 'Space Grotesk', sans-serif;
+  --font-super-retro: 'Super Retro M54', 'Space Grotesk', monospace;
+  --font-cyber: var(--font-honfleur);
   --font-tech: 'Chakra Petch', sans-serif;
   --font-mono: 'Space Grotesk', monospace;
 

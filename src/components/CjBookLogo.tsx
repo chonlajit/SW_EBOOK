@@ -99,7 +99,7 @@ export default function CjBookLogo({ size = 260 }: { size?: number }) {
           <text
             x="0"
             y="0"
-            fontFamily="'Orbitron', 'Space Grotesk', sans-serif"
+            fontFamily="var(--font-honfleur), 'Honfleur', sans-serif"
             fontSize="38"
             fontWeight="900"
             fill="#0a0a0c"
