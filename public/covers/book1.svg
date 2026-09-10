@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 850" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyberRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a2a" />
+      <stop offset="100%" stop-color="#990000" />
+    </linearGradient>
+    <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#cbd5e1" />
+    </pattern>
+  </defs>
+
+  <!-- Background: Tech light silver-white -->
+  <rect width="600" height="850" fill="#f8fafc" rx="12" />
+  <rect width="600" height="850" fill="url(#dotGrid)" rx="12" opacity="0.6"/>
+  <rect x="20" y="20" width="560" height="810" fill="none" stroke="#0a0a0c" stroke-width="2" rx="8" />
+
+  <!-- Corner Tech Accents -->
+  <rect x="16" y="16" width="12" height="12" fill="#ff2a2a" />
+  <rect x="572" y="16" width="12" height="12" fill="#ff2a2a" />
+  <rect x="16" y="822" width="12" height="12" fill="#ff2a2a" />
+  <rect x="572" y="822" width="12" height="12" fill="#ff2a2a" />
+
+  <!-- Technical Header text -->
+  <text x="40" y="60" font-family="'Space Grotesk', monospace" font-size="14" fill="#0a0a0c" font-weight="700" letter-spacing="2">CJ-LABS // DOC.01</text>
+  <text x="560" y="60" font-family="'Space Grotesk', monospace" font-size="14" fill="#ff2a2a" font-weight="700" text-anchor="end">[ CYBER-AI ]</text>
+
+  <!-- Center Mech Core Art -->
+  <g transform="translate(300, 340)">
+    <!-- Outer mechanical ring -->
+    <circle r="140" fill="#0a0a0c" />
+    <circle r="134" fill="#f8fafc" />
+    <circle r="120" fill="none" stroke="#0a0a0c" stroke-width="2" stroke-dasharray="10 5" />
+    
+    <!-- Red glowing reactor center -->
+    <circle r="75" fill="url(#cyberRed)" />
+    <polygon points="0,-45 38,22 -38,22" fill="#ffffff" />
+    <circle r="15" fill="#0a0a0c" />
+    
+    <!-- Crosshairs -->
+    <line x1="-155" y1="0" x2="-125" y2="0" stroke="#ff2a2a" stroke-width="3" />
+    <line x1="125" y1="0" x2="155" y2="0" stroke="#ff2a2a" stroke-width="3" />
+    <line x1="0" y1="-155" x2="0" y2="-125" stroke="#ff2a2a" stroke-width="3" />
+    <line x1="0" y1="125" x2="0" y2="155" stroke="#ff2a2a" stroke-width="3" />
+  </g>
+
+  <!-- Title block -->
+  <rect x="40" y="520" width="130" height="26" fill="#0a0a0c" rx="4" />
+  <text x="48" y="538" font-family="'Space Grotesk', monospace" font-size="13" fill="#ffffff" font-weight="700">CORE MANUAL</text>
+
+  <text x="40" y="585" font-family="'Orbitron', 'Space Grotesk', sans-serif" font-size="38" fill="#0a0a0c" font-weight="900" letter-spacing="-1">MASTERING</text>
+  <text x="40" y="635" font-family="'Orbitron', 'Space Grotesk', sans-serif" font-size="46" fill="#ff2a2a" font-weight="900" letter-spacing="-1">VIBE CODING</text>
+  <text x="40" y="675" font-family="'Chakra Petch', sans-serif" font-size="20" fill="#475569" font-weight="600">WITH ARTIFICIAL INTELLIGENCE</text>
+
+  <!-- Author tag -->
+  <line x1="40" y1="710" x2="560" y2="710" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="40" y="745" font-family="'Space Grotesk', sans-serif" font-size="16" fill="#0a0a0c" font-weight="700">BY CJ LABS &amp; DEVMIND</text>
+  <text x="560" y="745" font-family="'Space Grotesk', monospace" font-size="14" fill="#ff2a2a" font-weight="700" text-anchor="end">220 PAGES • PDF</text>
+</svg>

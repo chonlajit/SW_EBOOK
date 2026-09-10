@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Orbitron:wght@600;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  /* Futuristic ChainGPT-inspired Palette (White / Black / Red) */
+  --bg-main: #f0f2f5;
+  --bg-canvas: #e8ebf0;
+  --bg-card: #ffffff;
+  --bg-card-secondary: #f4f6f9;
+  --bg-dark-block: #0d0e12;
+
+  --text-main: #0a0a0c;
+  --text-muted: #5c6470;
+  --text-subtle: #8a94a6;
+
+  /* User Requirement: Replace orange with RED */
+  --accent-red: #ff2a2a;
+  --accent-red-hover: #e01b1b;
+  --accent-red-dark: #b81414;
+  --accent-red-glow: rgba(255, 42, 42, 0.35);
+  --accent-red-bg: rgba(255, 42, 42, 0.08);
+
+  --border-tech: rgba(10, 10, 12, 0.12);
+  --border-tech-bold: #0a0a0c;
+  --border-red: rgba(255, 42, 42, 0.3);
+
+  --font-cyber: 'Orbitron', 'Space Grotesk', sans-serif;
+  --font-tech: 'Chakra Petch', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  --radius-tech-sm: 4px;
+  --radius-tech-md: 8px;
+  --radius-tech-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-tech), -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+  /* High-Tech Grid Background like Image 2 */
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Cyber Technical Box with Corner Pins like Image 2 */
+.tech-box {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-tech);
+  border-radius: var(--radius-tech-md);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.tech-box::before, .tech-box::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: var(--accent-red);
+  pointer-events: none;
+}
+
+.tech-box::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--accent-red);
+  border-left: 2px solid var(--accent-red);
+}
+
+.tech-box::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--accent-red);
+  border-right: 2px solid var(--accent-red);
+}
+
+/* Futuristic Heavy Block Titles */
+.font-cyber {
+  font-family: var(--font-cyber);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.font-tech {
+  font-family: var(--font-tech);
+}
+
+/* Buttons (Futuristic Red & Black) */
+.btn-cyber-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  background: var(--accent-red);
+  color: #ffffff;
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 9999px; /* Pill shape like Image 2 'APPLY NOW' */
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--accent-red-glow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+}
+
+.btn-cyber-red:hover {
+  background: var(--accent-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 42, 42, 0.45);
+}
+
+.btn-cyber-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-dark-block);
+  color: #ffffff;
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid #1f222e;
+  border-radius: var(--radius-tech-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cyber-dark:hover {
+  background: #181a22;
+  border-color: var(--accent-red);
+}
+
+.btn-cyber-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: #ffffff;
+  color: var(--text-main);
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-tech-bold);
+  border-radius: var(--radius-tech-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cyber-outline:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+/* Demo Warning Banner in Futuristic Tech Style */
+.demo-banner-futuristic {
+  background: #0d0e12;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-bottom: 2px solid var(--accent-red);
+  letter-spacing: 0.5px;
+  font-family: var(--font-tech);
+}
+
+.demo-banner-futuristic strong {
+  background: var(--accent-red);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-cyber);
+  font-size: 0.75rem;
+}
+
+/* Inputs */
+.form-input-tech {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #ffffff;
+  border: 1.5px solid rgba(10, 10, 12, 0.18);
+  border-radius: var(--radius-tech-md);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-family: var(--font-tech);
+  transition: all 0.2s ease;
+}
+
+.form-input-tech:focus {
+  outline: none;
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(255, 42, 42, 0.15);
+}
+
+/* Tech Crosshairs decoration */
+.tech-cross {
+  color: var(--text-subtle);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  user-select: none;
+}
+
+/* Red Pin marker like Image 2 corner markers */
+.red-pin {
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent-red);
+  display: inline-block;
+}
+
+/* Keyframe for subtle scanner / glow */
+@keyframes techPulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+
+.reactor-pulse {
+  animation: techPulse 3s infinite ease-in-out;
+}

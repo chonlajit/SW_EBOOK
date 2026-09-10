@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 850" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyberRed2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a2a" />
+      <stop offset="100%" stop-color="#990000" />
+    </linearGradient>
+    <pattern id="dotGrid2" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#cbd5e1" />
+    </pattern>
+  </defs>
+
+  <rect width="600" height="850" fill="#f8fafc" rx="12" />
+  <rect width="600" height="850" fill="url(#dotGrid2)" rx="12" opacity="0.6"/>
+  <rect x="20" y="20" width="560" height="810" fill="none" stroke="#0a0a0c" stroke-width="2" rx="8" />
+
+  <!-- Corner Tech Accents -->
+  <rect x="16" y="16" width="12" height="12" fill="#ff2a2a" />
+  <rect x="572" y="16" width="12" height="12" fill="#ff2a2a" />
+  <rect x="16" y="822" width="12" height="12" fill="#ff2a2a" />
+  <rect x="572" y="822" width="12" height="12" fill="#ff2a2a" />
+
+  <!-- Technical Header -->
+  <text x="40" y="60" font-family="'Space Grotesk', monospace" font-size="14" fill="#0a0a0c" font-weight="700" letter-spacing="2">CJ-LABS // DOC.02</text>
+  <text x="560" y="60" font-family="'Space Grotesk', monospace" font-size="14" fill="#ff2a2a" font-weight="700" text-anchor="end">[ FULLSTACK ]</text>
+
+  <!-- Geometric Hexagon Core -->
+  <g transform="translate(300, 340)">
+    <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60" fill="#0a0a0c" />
+    <polygon points="0,-112 97,-56 97,56 0,112 -97,56 -97,-56" fill="#f8fafc" />
+    <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45" fill="url(#cyberRed2)" />
+    
+    <!-- Code symbol -->
+    <text x="0" y="14" font-family="'Space Grotesk', monospace" font-size="44" fill="#ffffff" font-weight="900" text-anchor="middle">&lt; / &gt;</text>
+  </g>
+
+  <!-- Title block -->
+  <rect x="40" y="520" width="160" height="26" fill="#ff2a2a" rx="4" />
+  <text x="48" y="538" font-family="'Space Grotesk', monospace" font-size="13" fill="#ffffff" font-weight="700">PRODUCTION ARCH</text>
+
+  <text x="40" y="585" font-family="'Orbitron', 'Space Grotesk', sans-serif" font-size="38" fill="#0a0a0c" font-weight="900" letter-spacing="-1">NEXT.JS 15 &amp;</text>
+  <text x="40" y="635" font-family="'Orbitron', 'Space Grotesk', sans-serif" font-size="46" fill="#ff2a2a" font-weight="900" letter-spacing="-1">SUPABASE</text>
+  <text x="40" y="675" font-family="'Chakra Petch', sans-serif" font-size="20" fill="#475569" font-weight="600">POSTGRES • RLS • SECURE STORAGE</text>
+
+  <!-- Author tag -->
+  <line x1="40" y1="710" x2="560" y2="710" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="40" y="745" font-family="'Space Grotesk', sans-serif" font-size="16" fill="#0a0a0c" font-weight="700">BY ALEX RIVERA &amp; CJ SHOP</text>
+  <text x="560" y="745" font-family="'Space Grotesk', monospace" font-size="14" fill="#ff2a2a" font-weight="700" text-anchor="end">310 PAGES • PDF</text>
+</svg>
