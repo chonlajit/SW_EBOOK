@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function CjBookLogo({ size = 260 }: { size?: number }) {
   return (
-    <div style={{ position: 'relative', width: '100%', maxWidth: `${size}px`, marginBottom: '1rem' }}>
+    <div style={{ position: 'relative', width: '100%', maxWidth: `${size}px`, marginBottom: '1.25rem' }}>
       <svg
-        viewBox="0 0 360 260"
+        viewBox="0 0 300 240"
         width="100%"
         height="100%"
         style={{ display: 'block', overflow: 'visible' }}
@@ -19,14 +19,10 @@ export default function CjBookLogo({ size = 260 }: { size?: number }) {
             <stop offset="0%" stop-color="#ff2a2a" />
             <stop offset="100%" stop-color="#b81414" />
           </linearGradient>
-
-          <filter id="badgeShadow" x="-10%" y="-10%" width="130%" height="130%">
-            <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="rgba(0,0,0,0.25)" />
-          </filter>
         </defs>
 
         {/* ================= 1. THE FUTURISTIC OPEN BOOK ICON ================= */}
-        <g transform="translate(145, 80)">
+        <g transform="translate(150, 75)">
           {/* Spine glow / accent */}
           <rect x="-6" y="-38" width="12" height="74" rx="3" fill="#ff2a2a" opacity="0.9" />
 
@@ -99,7 +95,7 @@ export default function CjBookLogo({ size = 260 }: { size?: number }) {
         </g>
 
         {/* ================= 2. CJ SHOP TYPOGRAPHY ================= */}
-        <g transform="translate(145, 195)">
+        <g transform="translate(150, 190)">
           <text
             x="0"
             y="0"
@@ -113,7 +109,7 @@ export default function CjBookLogo({ size = 260 }: { size?: number }) {
             CJ SHOP
           </text>
           
-          {/* Tech Underline with Red Pin */}
+          {/* Tech Underline with Red Pins */}
           <line x1="-90" y1="12" x2="90" y2="12" stroke="#0a0a0c" strokeWidth="2" />
           <rect x="-90" y="10" width="8" height="4" fill="#ff2a2a" />
           <rect x="82" y="10" width="8" height="4" fill="#ff2a2a" />
@@ -129,69 +125,6 @@ export default function CjBookLogo({ size = 260 }: { size?: number }) {
             textAnchor="middle"
           >
             DIGITAL E-BOOK STORE
-          </text>
-        </g>
-
-        {/* ================= 3. TILTED "LOGO" BADGE (EXACT USER IMAGE) ================= */}
-        {/* Tilted rounded black pill badge with chromatic aberration glitch around 'LOGO' */}
-        <g transform="translate(268, 48) rotate(25)" filter="url(#badgeShadow)">
-          {/* Black Badge Container */}
-          <rect
-            x="-44"
-            y="-18"
-            width="88"
-            height="36"
-            rx="8"
-            fill="#0a0a0c"
-            stroke="#222634"
-            strokeWidth="1.5"
-          />
-
-          {/* Chromatic Aberration Glitch effect matching user's photo */}
-          {/* Cyan layer (left/top offset) */}
-          <text
-            x="-1.5"
-            y="7"
-            fontFamily="'Orbitron', 'Space Grotesk', sans-serif"
-            fontSize="17"
-            fontWeight="900"
-            letterSpacing="2.5"
-            fill="none"
-            stroke="#00f0ff"
-            strokeWidth="1.4"
-            textAnchor="middle"
-          >
-            LOGO
-          </text>
-
-          {/* Orange/Red layer (right/bottom offset) */}
-          <text
-            x="1.5"
-            y="7.5"
-            fontFamily="'Orbitron', 'Space Grotesk', sans-serif"
-            fontSize="17"
-            fontWeight="900"
-            letterSpacing="2.5"
-            fill="none"
-            stroke="#ff3b30"
-            strokeWidth="1.4"
-            textAnchor="middle"
-          >
-            LOGO
-          </text>
-
-          {/* White Foreground Layer */}
-          <text
-            x="0"
-            y="7"
-            fontFamily="'Orbitron', 'Space Grotesk', sans-serif"
-            fontSize="17"
-            fontWeight="900"
-            letterSpacing="2.5"
-            fill="#ffffff"
-            textAnchor="middle"
-          >
-            LOGO
           </text>
         </g>
       </svg>

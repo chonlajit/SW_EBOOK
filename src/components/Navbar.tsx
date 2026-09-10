@@ -1,8 +1,18 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { Search, Menu as MenuIcon, ShieldAlert } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Search, Menu as MenuIcon } from 'lucide-react';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  // Do not render Navbar on landing page (user explicitly requested to remove bar on landing page)
+  if (pathname === '/') {
+    return null;
+  }
+
   return (
     <header style={{
       background: '#ffffff',
@@ -19,7 +29,7 @@ export default function Navbar() {
         height: '68px',
         gap: '1.5rem',
       }}>
-        {/* Brand: E-BOOK (Thick blocky brutalist font like Image 1) */}
+        {/* Brand: E-BOOK */}
         <Link href="/" style={{
           display: 'flex',
           alignItems: 'center',
@@ -43,7 +53,7 @@ export default function Navbar() {
           }}></span>
         </Link>
 
-        {/* Center Search Bar like Image 1 */}
+        {/* Center Search Bar */}
         <div style={{
           flex: 1,
           maxWidth: '550px',
@@ -91,7 +101,7 @@ export default function Navbar() {
           </form>
         </div>
 
-        {/* Right Menu Button like Image 1 */}
+        {/* Right Menu & Tracking */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Link
             href="/track"
