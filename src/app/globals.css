@@ -292,13 +292,14 @@ button, input, select, textarea {
 }
 
 @media (max-width: 960px) {
+  .hero-masonry-grid,
   .hero-unified-grid {
     grid-template-columns: 1fr !important;
     grid-template-areas:
       "topbar"
       "cjshop"
       "center1"
-      "center2"
-      "menu" !important;
+      "menu"
+      "center2" !important;
   }
 }

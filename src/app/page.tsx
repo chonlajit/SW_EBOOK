@@ -15,7 +15,8 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
-  Cpu
+  Cpu,
+  Layers
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -31,31 +32,30 @@ export default function HomePage() {
   return (
     <div style={{ padding: '1.5rem 0 4rem 0' }}>
       {/* ========================================================
-          UNIFIED HERO GRID (EXACTLY MATCHING IMAGE 1 & IMAGE 2)
-          - Topbar: spans columns 1 & 2 (E-BOOK + Search + [Q])
-          - Right Card: spans rows 1 to 3 (tall 'menu' card)
-          - Left Card: CJ SHOP (Book logo + คำอธิบายแพลตฟอร์ม)
-          - Center Upper Card: Featured Showcase
-          - Center Lower Card: Ecosystem Specs Bar
+          TRUE MASONRY GRID (ตามผัง MASONRY LAYOUT ความเยื้องไม่เท่ากัน)
+          grid-template-areas:
+            "topbar   topbar   menu"
+            "cjshop   center1  menu"
+            "cjshop   center2  center2";
           ======================================================== */}
-      <section style={{ marginBottom: '2.5rem' }}>
+      <section style={{ marginBottom: '3rem' }}>
         <div className="container">
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'minmax(280px, 320px) 1fr minmax(200px, 230px)',
-              gridTemplateRows: 'auto auto auto',
+              gridTemplateColumns: 'minmax(300px, 340px) 1fr minmax(220px, 250px)',
+              gridTemplateRows: 'auto 1fr auto',
               gridTemplateAreas: `
                 "topbar   topbar   menu"
                 "cjshop   center1  menu"
-                "cjshop   center2  menu"
+                "cjshop   center2  center2"
               `,
               gap: '1.25rem',
               alignItems: 'stretch',
             }}
-            className="hero-unified-grid"
+            className="hero-masonry-grid"
           >
-            {/* 1. TOPBAR (SPANS COLUMNS 1 & 2: E-BOOK + SEARCH + [Q]) */}
+            {/* 1. TOPBAR: Spans Columns 1 & 2 (E-BOOK + Search Bar + [Q]) */}
             <div
               className="tech-box"
               style={{
@@ -68,7 +68,7 @@ export default function HomePage() {
                 gap: '1.5rem',
               }}
             >
-              {/* E-BOOK Title with Honfleur font */}
+              {/* E-BOOK Title (Honfleur Heavy) */}
               <div
                 style={{
                   fontFamily: "var(--font-honfleur), 'Honfleur', sans-serif",
@@ -86,17 +86,17 @@ export default function HomePage() {
                 <span className="red-pin"></span>
               </div>
 
-              {/* Center Pill Search Input with Black Square [Q] Button like Image 1 */}
+              {/* Center Pill Search Input with Black Square [Q] Button like Wireframe */}
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  maxWidth: '520px',
+                  maxWidth: '540px',
                   width: '100%',
                   background: '#f8fafc',
                   border: '1.5px solid rgba(10, 10, 12, 0.2)',
                   borderRadius: '9999px',
-                  padding: '3px 4px 3px 14px',
+                  padding: '3px 4px 3px 16px',
                   boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.04)',
                 }}
               >
@@ -128,7 +128,6 @@ export default function HomePage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
-                    transition: 'all 0.2s',
                   }}
                   title="ค้นหา"
                 >
@@ -137,7 +136,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* 2. RIGHT MENU BOX (SPANS ROWS 1 TO 3 ALONGSIDE TOPBAR & HERO) */}
+            {/* 2. RIGHT MENU BOX: Sits in Column 3, Rows 1 & 2 (Stops before Row 3) */}
             <div
               className="tech-box"
               style={{
@@ -150,7 +149,7 @@ export default function HomePage() {
               }}
             >
               <div>
-                {/* MENU header with Super Retro font and underline exactly like Figma */}
+                {/* MENU header (Super Retro M54) with underline exactly like Figma */}
                 <div style={{ marginBottom: '1.25rem' }}>
                   <div
                     style={{
@@ -233,44 +232,28 @@ export default function HomePage() {
                     <span>→</span>
                   </Link>
                 </div>
-
-                {/* Platform status notes */}
-                <div
-                  style={{
-                    marginTop: '1.75rem',
-                    padding: '0.85rem',
-                    background: '#f8fafc',
-                    borderRadius: '8px',
-                    border: '1px solid var(--border-tech)',
-                    fontSize: '0.75rem',
-                    color: 'var(--text-muted)',
-                    lineHeight: 1.6,
-                  }}
-                >
-                  <div style={{ fontWeight: 800, color: '#0a0a0c', marginBottom: '4px' }}>
-                    // 3 APPS STATUS
-                  </div>
-                  <div>• Web View: Ready</div>
-                  <div>• Mobile (.apk): Ready</div>
-                  <div>• Desktop (.exe): Ready</div>
-                </div>
               </div>
 
+              {/* Status footer inside menu */}
               <div
                 style={{
-                  padding: '0.6rem',
-                  borderTop: '1px dashed var(--border-tech)',
+                  marginTop: '1.25rem',
+                  padding: '0.65rem 0.75rem',
+                  background: '#f8fafc',
+                  borderRadius: '6px',
+                  border: '1px solid var(--border-tech)',
                   fontSize: '0.72rem',
-                  color: 'var(--text-subtle)',
-                  textAlign: 'center',
-                  fontFamily: 'var(--font-mono)',
+                  color: 'var(--text-muted)',
                 }}
               >
-                CJ E-BOOK v1.0
+                <div style={{ fontWeight: 800, color: '#0a0a0c', marginBottom: '2px' }}>
+                  // 3 PLATFORMS
+                </div>
+                <div>Web • APK • EXE Active</div>
               </div>
             </div>
 
-            {/* 3. LEFT BOX: CJ SHOP LOGO + คำอธิบายแพลตฟอร์ม */}
+            {/* 3. LEFT BOX: Column 1, Rows 2 & 3 (TALL BOX: CJ SHOP LOGO + คำอธิบายแพลตฟอร์ม) */}
             <div
               className="tech-box"
               style={{
@@ -283,7 +266,7 @@ export default function HomePage() {
               }}
             >
               <div>
-                {/* Book-shaped Logo with CJ letters (No "LOGO" badge) */}
+                {/* Book Logo with CJ (Honfleur Heavy) */}
                 <CjBookLogo size={260} />
 
                 {/* Subtitle / Platform Tag */}
@@ -305,7 +288,7 @@ export default function HomePage() {
 
                 <h2
                   style={{
-                    fontSize: '1.2rem',
+                    fontSize: '1.25rem',
                     fontWeight: 800,
                     color: '#0a0a0c',
                     marginBottom: '0.75rem',
@@ -322,7 +305,7 @@ export default function HomePage() {
                     lineHeight: 1.6,
                   }}
                 >
-                  ระบบร้านค้า E-book ตัวอย่าง พัฒนาตามข้อกำหนดใบงาน Vibe Coding เชื่อมต่อระบบสั่งซื้อ จำลองชำระเงิน (Mock Payment) พร้อมออก Signed URL ดาวน์โหลดชั่วคราวอย่างปลอดภัย รองรับการใช้งานพร้อมกัน 3 แพลตฟอร์ม
+                  ระบบร้านค้า E-book ตัวอย่าง พัฒนาตามข้อกำหนดใบงาน Vibe Coding เชื่อมต่อระบบสั่งซื้อ จำลองชำระเงิน (Mock Payment) พร้อมออก Signed URL ดาวน์โหลดชั่วคราวอย่างปลอดภัย รองรับการใช้งานพร้อมกัน 3 แพลตฟอร์ม (Web View, Mobile .APK, Desktop .EXE)
                 </p>
               </div>
 
@@ -344,12 +327,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* 4. CENTER UPPER BOX: Featured Cyber Showcase */}
+            {/* 4. CENTER UPPER BOX: Column 2, Row 2 (Featured Cyber Showcase) */}
             <div
               className="tech-box"
               style={{
                 gridArea: 'center1',
-                padding: '2rem',
+                padding: '1.75rem 2rem',
                 backgroundColor: '#ffffff',
                 display: 'flex',
                 flexDirection: 'column',
@@ -377,12 +360,12 @@ export default function HomePage() {
                 <span>[ SEC.ID: 4821-VIBE ]</span>
               </div>
 
-              {/* Center Cyber Stencil Title & Red Reactor Core */}
-              <div style={{ textAlign: 'center', margin: '1rem 0' }}>
+              {/* Cyber Stencil Title & Red Reactor Core */}
+              <div style={{ textAlign: 'center', margin: '0.75rem 0' }}>
                 <div
                   style={{
                     fontFamily: 'var(--font-cyber)',
-                    fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
+                    fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
                     fontWeight: 900,
                     letterSpacing: '3px',
                     color: '#0a0a0c',
@@ -393,12 +376,12 @@ export default function HomePage() {
                   CJ LABS
                 </div>
 
-                {/* Glowing Red Reactor Core (Futuristic Mech) */}
+                {/* Glowing Red Reactor Core */}
                 <div
                   style={{
-                    margin: '1rem auto 0 auto',
-                    width: '95px',
-                    height: '95px',
+                    margin: '0.85rem auto 0 auto',
+                    width: '90px',
+                    height: '90px',
                     borderRadius: '14px',
                     background: '#0a0a0c',
                     border: '2px solid rgba(10, 10, 12, 0.2)',
@@ -412,8 +395,8 @@ export default function HomePage() {
                   <div
                     className="reactor-pulse"
                     style={{
-                      width: '46px',
-                      height: '46px',
+                      width: '44px',
+                      height: '44px',
                       borderRadius: '8px',
                       background: 'radial-gradient(circle, #ff3b3b 0%, #cc0000 70%, #660000 100%)',
                       boxShadow: '0 0 20px rgba(255, 42, 42, 0.7)',
@@ -440,14 +423,14 @@ export default function HomePage() {
                   justifyContent: 'space-between',
                   gap: '1rem',
                   borderTop: '1px dashed var(--border-tech)',
-                  paddingTop: '0.85rem',
+                  paddingTop: '0.75rem',
                 }}
               >
                 <p
                   style={{
                     fontSize: '0.85rem',
                     color: 'var(--text-muted)',
-                    maxWidth: '360px',
+                    maxWidth: '340px',
                     lineHeight: 1.4,
                   }}
                 >
@@ -457,7 +440,7 @@ export default function HomePage() {
                 <a
                   href="#recommend-section"
                   className="btn-cyber-red"
-                  style={{ padding: '0.6rem 1.4rem', fontSize: '0.88rem' }}
+                  style={{ padding: '0.6rem 1.3rem', fontSize: '0.85rem' }}
                 >
                   <span>EXPLORE BOOKS</span>
                   <ArrowRight size={16} />
@@ -465,33 +448,79 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* 5. CENTER LOWER BOX: Ecosystem Specs Bar */}
+            {/* 5. CENTER LOWER BOX: Spans Columns 2 & 3 in Row 3 (WIDE BOX UNDER CENTER1 & MENU!) */}
             <div
               className="tech-box"
               style={{
                 gridArea: 'center2',
-                padding: '1.1rem 1.75rem',
+                padding: '1.25rem 2rem',
                 backgroundColor: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 flexWrap: 'wrap',
-                gap: '1rem',
+                gap: '1.25rem',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', fontWeight: 700 }}>
-                <Globe size={18} color="#0a0a0c" />
-                <span>WEB VIEW (VERCEL)</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '6px',
+                  background: '#0a0a0c',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                }}>
+                  <Globe size={18} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0a0a0c' }}>WEB VIEW</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Vercel Production</div>
+                </div>
               </div>
-              <div style={{ width: '1px', height: '18px', background: 'var(--border-tech)' }}></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', fontWeight: 700 }}>
-                <Smartphone size={18} color="var(--accent-red)" />
-                <span>MOBILE APP (.APK)</span>
+
+              <div style={{ width: '1px', height: '28px', background: 'var(--border-tech)' }}></div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '6px',
+                  background: 'var(--accent-red)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                }}>
+                  <Smartphone size={18} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0a0a0c' }}>MOBILE APP</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--accent-red)', fontWeight: 700 }}>.APK Installer</div>
+                </div>
               </div>
-              <div style={{ width: '1px', height: '18px', background: 'var(--border-tech)' }}></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', fontWeight: 700 }}>
-                <Monitor size={18} color="#0a0a0c" />
-                <span>DESKTOP APP (.EXE)</span>
+
+              <div style={{ width: '1px', height: '28px', background: 'var(--border-tech)' }}></div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '6px',
+                  background: '#0a0a0c',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                }}>
+                  <Monitor size={18} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#0a0a0c' }}>DESKTOP APP</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>.EXE Windows</div>
+                </div>
               </div>
             </div>
           </div>
@@ -585,7 +614,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ECOSYSTEM & PARTNERS BAR (Image 2 style) */}
+      {/* ECOSYSTEM & PARTNERS BAR */}
       <section
         style={{
           padding: '2.5rem 0',
