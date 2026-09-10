@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { INITIAL_BOOKS } from '@/lib/booksData';
 import BookCard from '@/components/BookCard';
+import CjBookLogo from '@/components/CjBookLogo';
 import Link from 'next/link';
 import {
   Search,
@@ -126,51 +127,8 @@ export default function HomePage() {
               backgroundColor: '#ffffff',
             }}>
               <div>
-                {/* CJ SHOP LOGO WITH TILTED "LOGO" BADGE like Image 1 */}
-                <div style={{
-                  position: 'relative',
-                  display: 'inline-block',
-                  marginBottom: '1.5rem',
-                }}>
-                  <div style={{
-                    fontFamily: 'var(--font-cyber)',
-                    fontSize: '3.4rem',
-                    fontWeight: 900,
-                    lineHeight: 0.85,
-                    color: '#0a0a0c',
-                    letterSpacing: '-2px',
-                  }}>
-                    CJ
-                  </div>
-                  <div style={{
-                    fontFamily: 'var(--font-cyber)',
-                    fontSize: '2.6rem',
-                    fontWeight: 900,
-                    lineHeight: 0.95,
-                    color: '#0a0a0c',
-                    letterSpacing: '-1.5px',
-                  }}>
-                    SHOP
-                  </div>
-
-                  {/* Tilted LOGO tag like Image 1 */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '4px',
-                    right: '-45px',
-                    transform: 'rotate(25deg)',
-                    background: '#0a0a0c',
-                    color: '#ffffff',
-                    padding: '2px 8px',
-                    borderRadius: '3px',
-                    fontFamily: 'var(--font-cyber)',
-                    fontSize: '0.75rem',
-                    fontWeight: 900,
-                    letterSpacing: '1px',
-                  }}>
-                    LOGO
-                  </div>
-                </div>
+                {/* CJ BOOK LOGO WITH TILTED "LOGO" BADGE */}
+                <CjBookLogo size={280} />
 
                 {/* Subtitle / Platform Tag */}
                 <div style={{
