@@ -11,13 +11,13 @@ export default function CjBookLogo({ size = 260 }: { size?: number }) {
       >
         <defs>
           <linearGradient id="bookDark" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0a0a0c" />
-            <stop offset="100%" stop-color="#181a24" />
+            <stop offset="0%" stopColor="#0a0a0c" />
+            <stop offset="100%" stopColor="#181a24" />
           </linearGradient>
 
           <linearGradient id="cyberRed" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff2a2a" />
-            <stop offset="100%" stop-color="#b81414" />
+            <stop offset="0%" stopColor="#ff2a2a" />
+            <stop offset="100%" stopColor="#b81414" />
           </linearGradient>
         </defs>
 
