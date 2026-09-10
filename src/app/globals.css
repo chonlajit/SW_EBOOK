@@ -255,3 +255,15 @@ button, input, select, textarea {
 .reactor-pulse {
   animation: techPulse 3s infinite ease-in-out;
 }
+
+@media (max-width: 960px) {
+  .hero-unified-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "topbar"
+      "cjshop"
+      "center1"
+      "center2"
+      "menu" !important;
+  }
+}
