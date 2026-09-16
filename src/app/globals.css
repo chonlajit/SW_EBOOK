@@ -1,19 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Orbitron:wght@600;800;900&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Montserrat:wght@800;900&family=Orbitron:wght@600;800;900&family=Space+Grotesk:wght@500;700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Custom Local Fonts from Figma */
+/* ========================================================
+   EXACT FONTS FROM FIGMA SPECIFICATION
+   Place any of these in /public/fonts/ :
+   1. Milker.otf / Milker.ttf
+   2. Gondens_DEMO.otf / Gondens_DEMO.ttf (or Gondens.otf)
+   3. Victory_Striker_Sans_Demo.otf / Victory_Striker_Sans_Demo.ttf
+   4. Ubuntu_Mono.ttf / UbuntuMono-Regular.ttf (Also loaded via Google Fonts)
+   5. Honfleur-Heavy.otf (Pre-loaded)
+   ======================================================== */
+
 @font-face {
-  font-family: 'Honfleur';
-  src: url('/fonts/Honfleur-Heavy.otf') format('opentype');
-  font-weight: 900;
+  font-family: 'Milker';
+  src: url('/fonts/Milker.otf') format('opentype'),
+       url('/fonts/Milker.ttf') format('truetype'),
+       url('/fonts/milker.otf') format('opentype'),
+       url('/fonts/milker.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
+  font-family: 'Gondens_DEMO';
+  src: url('/fonts/Gondens_DEMO.otf') format('opentype'),
+       url('/fonts/Gondens_DEMO.ttf') format('truetype'),
+       url('/fonts/Gondens.otf') format('opentype'),
+       url('/fonts/Gondens.ttf') format('truetype'),
+       url('/fonts/gondens.otf') format('opentype'),
+       url('/fonts/gondens.ttf') format('truetype'),
+       url('/fonts/Honfleur-Heavy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Victory_Striker_Sans_Demo';
+  src: url('/fonts/Victory_Striker_Sans_Demo.otf') format('opentype'),
+       url('/fonts/Victory_Striker_Sans_Demo.ttf') format('truetype'),
+       url('/fonts/VictoryStrikerSansDemo.otf') format('opentype'),
+       url('/fonts/VictoryStrikerSansDemo.ttf') format('truetype'),
+       url('/fonts/Victory_Striker.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu_Mono';
+  src: local('Ubuntu Mono'),
+       local('UbuntuMono-Regular'),
+       local('UbuntuMono');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter_28pt';
+  src: url('/fonts/Inter_28pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Local Fonts Pre-loaded */
+@font-face {
   font-family: 'Honfleur';
-  src: url('/fonts/Honfleur-HeavyItalic.otf') format('opentype');
+  src: url('/fonts/Honfleur-Heavy.otf') format('opentype'),
+       url('/fonts/Honfleur-Heavy.ttf') format('truetype');
   font-weight: 900;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -25,16 +83,32 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Super Retro M54';
-  src: url('/fonts/Super Retro Italic M54.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
 :root {
-  /* Futuristic ChainGPT-inspired Palette (White / Black / Red) */
+  /* Exact Figma 7 Selection Colors */
+  --figma-black: #000000;
+  --figma-green-dark: #1C3002;
+  --figma-green-dark-2: #213902;
+  --figma-olive: #5E6C4B;
+  --figma-gray: #D9D9D9;
+  --figma-lime: #E9FFB6;
+  --figma-pink: #FFDED9;
+  --figma-white: #FFFFFF;
+
+  /* Exact Font Family Stacks matching Figma inspect */
+  --font-milker: 'Milker', 'Montserrat', 'Impact', sans-serif;
+  --font-gondens: 'Gondens_DEMO', 'Honfleur', 'Bebas Neue', 'Anton', sans-serif;
+  --font-victory: 'Victory_Striker_Sans_Demo', 'Chakra Petch', 'Space Grotesk', sans-serif;
+  --font-ubuntu-mono: 'Ubuntu_Mono', 'Ubuntu Mono', 'Space Grotesk', monospace;
+
+  /* Compatibility font aliases */
+  --font-honfleur: var(--font-gondens);
+  --font-super-retro: var(--font-victory);
+  --font-cyber: var(--font-gondens);
+  --font-tech: var(--font-victory);
+  --font-mono: var(--font-ubuntu-mono);
+  --font-heavy: var(--font-milker);
+
+  /* Standard theme fallback colors */
   --bg-main: #f0f2f5;
   --bg-canvas: #e8ebf0;
   --bg-card: #ffffff;
@@ -45,7 +119,6 @@
   --text-muted: #5c6470;
   --text-subtle: #8a94a6;
 
-  /* User Requirement: Replace orange with RED */
   --accent-red: #ff2a2a;
   --accent-red-hover: #e01b1b;
   --accent-red-dark: #b81414;
@@ -55,12 +128,6 @@
   --border-tech: rgba(10, 10, 12, 0.12);
   --border-tech-bold: #0a0a0c;
   --border-red: rgba(255, 42, 42, 0.3);
-
-  --font-honfleur: 'Honfleur', 'Orbitron', 'Space Grotesk', sans-serif;
-  --font-super-retro: 'Super Retro M54', 'Space Grotesk', monospace;
-  --font-cyber: var(--font-honfleur);
-  --font-tech: 'Chakra Petch', sans-serif;
-  --font-mono: 'Space Grotesk', monospace;
 
   --radius-tech-sm: 4px;
   --radius-tech-md: 8px;
@@ -73,20 +140,24 @@
   padding: 0;
 }
 
-html, body {
+html {
   font-family: var(--font-tech), -apple-system, sans-serif;
-  background-color: var(--bg-main);
+  background-color: var(--figma-pink);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: var(--font-tech), -apple-system, sans-serif;
+  background-color: var(--figma-pink);
   color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
-  overflow-x: hidden;
-  /* High-Tech Grid Background like Image 2 */
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -303,3 +374,58 @@ button, input, select, textarea {
       "center2" !important;
   }
 }
+
+/* ========================================================
+   FIGMA NEO-BRUTALIST DESIGN UTILITIES
+   ======================================================== */
+.figma-bg-pink-dots {
+  background-color: var(--figma-pink);
+  background-image: radial-gradient(var(--figma-lime) 2.2px, transparent 2.2px);
+  background-size: 22px 22px;
+}
+
+@keyframes figmaMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: figmaMarquee 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Figma Card with 10px Lime Border */
+.figma-book-card {
+  background: var(--figma-white);
+  border: 10px solid var(--figma-lime);
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.figma-book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+/* Figma Pill Topbar */
+.figma-pill-nav {
+  background: var(--figma-green-dark);
+  border: 2.5px solid var(--figma-lime);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Outline text helper */
+.outline-text-lime {
+  -webkit-text-stroke: 1.5px #8fa070;
+  color: transparent;
+}
+

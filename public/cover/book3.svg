@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 850" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyberRed3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a2a" />
+      <stop offset="100%" stop-color="#990000" />
+    </linearGradient>
+    <pattern id="dotGrid3" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#cbd5e1" />
+    </pattern>
+  </defs>
+
+  <rect width="600" height="850" fill="#f8fafc" rx="12" />
+  <rect width="600" height="850" fill="url(#dotGrid3)" rx="12" opacity="0.6"/>
+  <rect x="20" y="20" width="560" height="810" fill="none" stroke="#0a0a0c" stroke-width="2" rx="8" />
+
+  <!-- Corner Tech Accents -->
+  <rect x="16" y="16" width="12" height="12" fill="#ff2a2a" />
+  <rect x="572" y="16" width="12" height="12" fill="#ff2a2a" />
+  <rect x="16" y="822" width="12" height="12" fill="#ff2a2a" />
+  <rect x="572" y="822" width="12" height="12" fill="#ff2a2a" />
+
+  <!-- Technical Header -->
+  <text x="40" y="60" font-family="'Space Grotesk', monospace" font-size="14" fill="#0a0a0c" font-weight="700" letter-spacing="2">CJ-LABS // DOC.03</text>
+  <text x="560" y="60" font-family="'Space Grotesk', monospace" font-size="14" fill="#ff2a2a" font-weight="700" text-anchor="end">[ CROSS-PLATFORM ]</text>
+
+  <!-- Mobile Phone & Mech Display Blueprint -->
+  <g transform="translate(300, 340)">
+    <!-- Device frame -->
+    <rect x="-70" y="-120" width="140" height="220" rx="16" fill="#0a0a0c" />
+    <rect x="-62" y="-105" width="124" height="190" rx="8" fill="#f8fafc" />
+    
+    <!-- Phone screen content -->
+    <rect x="-50" y="-85" width="100" height="60" fill="url(#cyberRed3)" rx="4" />
+    <circle cx="0" cy="-55" r="16" fill="#ffffff" />
+    
+    <rect x="-50" y="-10" width="70" height="8" fill="#0a0a0c" rx="2" />
+    <rect x="-50" y="5" width="100" height="6" fill="#94a3b8" rx="2" />
+    <rect x="-50" y="18" width="85" height="6" fill="#94a3b8" rx="2" />
+
+    <rect x="-40" y="40" width="80" height="20" fill="#ff2a2a" rx="10" />
+    <text x="0" y="54" font-family="'Space Grotesk', monospace" font-size="9" fill="#ffffff" font-weight="700" text-anchor="middle">BUILD APK</text>
+  </g>
+
+  <!-- Title block -->
+  <rect x="40" y="520" width="180" height="26" fill="#0a0a0c" rx="4" />
+  <text x="48" y="538" font-family="'Space Grotesk', monospace" font-size="13" fill="#ffffff" font-weight="700">WEB TO MOBILE APP</text>
+
+  <text x="40" y="585" font-family="'Orbitron', 'Space Grotesk', sans-serif" font-size="34" fill="#0a0a0c" font-weight="900" letter-spacing="-1">FROM WEB TO</text>
+  <text x="40" y="635" font-family="'Orbitron', 'Space Grotesk', sans-serif" font-size="44" fill="#ff2a2a" font-weight="900" letter-spacing="-1">MOBILE &amp; APP</text>
+  <text x="40" y="675" font-family="'Chakra Petch', sans-serif" font-size="20" fill="#475569" font-weight="600">MIT APP INVENTOR &amp; ELECTRON</text>
+
+  <!-- Author tag -->
+  <line x1="40" y1="710" x2="560" y2="710" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="40" y="745" font-family="'Space Grotesk', sans-serif" font-size="16" fill="#0a0a0c" font-weight="700">BY SARAH CHEN &amp; CJ SHOP</text>
+  <text x="560" y="745" font-family="'Space Grotesk', monospace" font-size="14" fill="#ff2a2a" font-weight="700" text-anchor="end">185 PAGES • PDF</text>
+</svg>

@@ -16,11 +16,21 @@ export async function GET(request: Request) {
     }
 
     let downloadUrl = '';
+    let downloadUrls: Array<{ bookId: string; title: string; url: string }> = [];
     if (order.status === 'PAID') {
       downloadUrl = await generateDownloadUrl(order.book?.file_path || 'sample.pdf', order.id);
+      if (order.books && order.books.length > 0) {
+        downloadUrls = await Promise.all(
+          order.books.map(async (b) => ({
+            bookId: b.id,
+            title: b.title,
+            url: await generateDownloadUrl(b.file_path || 'sample.pdf', order.id),
+          }))
+        );
+      }
     }
 
-    return NextResponse.json({ order, downloadUrl });
+    return NextResponse.json({ order, downloadUrl, downloadUrls });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Server error';
     return NextResponse.json({ error: msg }, { status: 500 });
@@ -47,11 +57,21 @@ export async function POST(request: Request) {
     }
 
     let downloadUrl = '';
+    let downloadUrls: Array<{ bookId: string; title: string; url: string }> = [];
     if (order.status === 'PAID') {
       downloadUrl = await generateDownloadUrl(order.book?.file_path || 'sample.pdf', order.id);
+      if (order.books && order.books.length > 0) {
+        downloadUrls = await Promise.all(
+          order.books.map(async (b) => ({
+            bookId: b.id,
+            title: b.title,
+            url: await generateDownloadUrl(b.file_path || 'sample.pdf', order.id),
+          }))
+        );
+      }
     }
 
-    return NextResponse.json({ order, downloadUrl });
+    return NextResponse.json({ order, downloadUrl, downloadUrls });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Server error';
     return NextResponse.json({ error: msg }, { status: 500 });

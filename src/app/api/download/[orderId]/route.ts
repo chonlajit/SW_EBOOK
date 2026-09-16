@@ -22,20 +22,50 @@ export async function GET(request: Request, { params }: Props) {
       });
     }
 
-    // Read the sample PDF file
-    const filePath = path.join(process.cwd(), 'public', 'sample-ebook.pdf');
-    if (!fs.existsSync(filePath)) {
+    const { searchParams } = new URL(request.url);
+    const requestedBookId = searchParams.get('bookId');
+    const targetBook = (requestedBookId && order.books)
+      ? (order.books.find((b) => b.id === requestedBookId) || order.book)
+      : order.book;
+
+    // Check if book has a custom file_path
+    const rawPath = targetBook?.file_path || '';
+    
+    // If it's an external URL, redirect directly
+    if (rawPath.startsWith('http://') || rawPath.startsWith('https://')) {
+      return NextResponse.redirect(rawPath);
+    }
+
+    // Try reading specific uploaded file or public file
+    let targetFilePath = path.join(process.cwd(), 'public', rawPath.replace(/^\//, ''));
+    if (!rawPath || !fs.existsSync(targetFilePath)) {
+      // Fallback to sample-ebook.pdf
+      targetFilePath = path.join(process.cwd(), 'public', 'sample-ebook.pdf');
+    }
+
+    if (!fs.existsSync(targetFilePath)) {
       return new NextResponse('ไม่พบไฟล์ E-book บนเซิร์ฟเวอร์', { status: 404 });
     }
 
-    const fileBuffer = fs.readFileSync(filePath);
-    const fileName = `${order.book?.id || 'ebook'}-licensed.pdf`;
+    const fileBuffer = fs.readFileSync(targetFilePath);
+    const ext = path.extname(targetFilePath) || '.pdf';
+    const cleanBookTitle = (targetBook?.title || 'ebook').replace(/[^a-zA-Z0-9ก-๙_-]/g, '_');
+    const downloadFileName = `${cleanBookTitle}${ext}`;
+
+    const mimeTypes: { [key: string]: string } = {
+      '.pdf': 'application/pdf',
+      '.epub': 'application/epub+zip',
+      '.zip': 'application/zip',
+      '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      '.doc': 'application/msword',
+    };
+    const contentType = mimeTypes[ext.toLowerCase()] || 'application/octet-stream';
 
     return new NextResponse(fileBuffer, {
       status: 200,
       headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${fileName}"`,
+        'Content-Type': contentType,
+        'Content-Disposition': `attachment; filename="${encodeURIComponent(downloadFileName)}"`,
         'Cache-Control': 'no-store, max-age=0',
       },
     });

@@ -23,10 +23,13 @@ export interface Order {
   download_count?: number;
   created_at?: string;
   book?: Book;
+  books?: Book[];
+  downloadUrls?: Array<{ bookTitle: string; url: string }>;
 }
 
 export interface CreateOrderPayload {
-  book_id: string;
+  book_id?: string;
+  book_ids?: string[];
   customer_name: string;
   customer_email: string;
 }
@@ -39,3 +42,16 @@ export interface MockPaymentResult {
   email_sent: boolean;
   message: string;
 }
+
+export type UserRole = 'user' | 'admin';
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  name: string;
+  role: UserRole;
+  password?: string;
+  created_at: string;
+}
+
