@@ -19,7 +19,7 @@ function createWindow() {
   });
 
   // URL Target: either from environment (Vercel production URL) or default local server
-  const targetUrl = process.env.DESKTOP_TARGET_URL || 'http://localhost:3000';
+  const targetUrl = process.env.DESKTOP_TARGET_URL || 'https://sw-ebook.vercel.app';
   mainWindow.loadURL(targetUrl);
 
   // Open external links in user's default browser

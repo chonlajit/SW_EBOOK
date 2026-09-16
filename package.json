@@ -2,13 +2,14 @@
   "name": "ebook-shop",
   "version": "0.1.0",
   "private": true,
+  "main": "desktop/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "electron:dev": "electron desktop/main.js",
-    "electron:build": "electron-packager . \"Vibe E-Book Store\" --platform=win32 --arch=x64 --out=dist --overwrite",
+    "electron:build": "electron-packager desktop \"Vibe E-Book Store\" --platform=win32 --arch=x64 --out=dist --overwrite",
     "set-admin": "node scripts/set-admin.js"
   },
   "dependencies": {
