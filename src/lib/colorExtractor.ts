@@ -133,9 +133,9 @@ export async function extractDominantColor(imageUrl?: string): Promise<string> {
 
         // Group colors into quantized buckets (step of 16 to aggregate close shades)
         const step = 16;
-        const colorBins: Record<string, { count: number; r: number; g: number; b: number }> = {};
+        const colorBins: Record<string, { count: number; sumR: number; sumG: number; sumB: number }> = {};
         let maxCount = 0;
-        let dominant = '#FFFFFF';
+        let winningBin: { count: number; sumR: number; sumG: number; sumB: number } | null = null;
 
         for (let i = 0; i < imgData.length; i += 4) {
           const a = imgData[i + 3];
@@ -152,14 +152,26 @@ export async function extractDominantColor(imageUrl?: string): Promise<string> {
 
           const key = `${qR},${qG},${qB}`;
           if (!colorBins[key]) {
-            colorBins[key] = { count: 0, r: qR, g: qG, b: qB };
+            colorBins[key] = { count: 0, sumR: 0, sumG: 0, sumB: 0 };
           }
-          colorBins[key].count++;
+          const bin = colorBins[key];
+          bin.count++;
+          bin.sumR += r;
+          bin.sumG += g;
+          bin.sumB += b;
 
-          if (colorBins[key].count > maxCount) {
-            maxCount = colorBins[key].count;
-            dominant = rgbToHex(qR, qG, qB);
+          if (bin.count > maxCount) {
+            maxCount = bin.count;
+            winningBin = bin;
           }
+        }
+
+        let dominant = '#FFFFFF';
+        if (winningBin && winningBin.count > 0) {
+          const avgR = Math.round(winningBin.sumR / winningBin.count);
+          const avgG = Math.round(winningBin.sumG / winningBin.count);
+          const avgB = Math.round(winningBin.sumB / winningBin.count);
+          dominant = rgbToHex(avgR, avgG, avgB);
         }
 
         colorCache[imageUrl] = dominant;
